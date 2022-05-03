@@ -22,10 +22,22 @@ vim.o.showtabline = 2
 vim.o.signcolumn = 'yes'
 vim.o.mouse = 'a'
 
+vim.g.neoformat_try_node_exe = 1
+
+
+
+
+------------------Prettier--------------------
+-- :vim.g.ale_fixers = {'svelte': ['prettier'], }
+
+vim.api.nvim_set_keymap('n','<leader>f',':lua vim.lsp.buf.formatting_sync() <CR>', {noremap= true})
+
+
 ----------------------PEM----------------------
-vim.api.nvim_set_keymap('n', 'w', ':w<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', 'q', ':q<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>w', ':w<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>q', ':q<CR>', {noremap = true})
 -----------------------------------------------
+
 
 ------------------Telescope--------------------
 vim.api.nvim_set_keymap('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files()<CR>", { noremap = true })
@@ -34,6 +46,8 @@ vim.api.nvim_set_keymap('n', '<leader>fb', "<cmd>lua require('telescope.builtin'
 vim.api.nvim_set_keymap('n', '<leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<CR>", { noremap = true })
 
 vim.api.nvim_set_keymap('n', '<leader>tb', ':Telescope file_browser <CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>hf', ":Telescope find_files hidden=true<CR>", {noremap = true })
+
 
 -----------------------------------------------
 

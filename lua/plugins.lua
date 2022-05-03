@@ -39,9 +39,9 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
 
 
-  use {'neoclide/coc.nvim', branch = 'release'}
+  --use {'neoclide/coc.nvim', branch = 'release'}
   use 'folke/tokyonight.nvim'
-  use 'nvim-treesitter/nvim-treesitter'
+  use ({'nvim-treesitter/nvim-treesitter', run = ":TSUpdate"})
   use 'tpope/vim-commentary'
   use 'JoosepAlviste/nvim-ts-context-commentstring'
   use 'kyazdani42/nvim-web-devicons'
@@ -73,6 +73,33 @@ return packer.startup(function(use)
 			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
 		},
 	})
+
+  -- Prettier
+  --use 'sbdchd/neoformat'
+ --use 'dense-analysis/ale'
+ use 'jose-elias-alvarez/null-ls.nvim'
+  -- LSP
+  use {
+    'VonHeikemen/lsp-zero.nvim',
+    requires = {
+      -- Soporte LSP
+      {'neovim/nvim-lspconfig'},
+      {'williamboman/nvim-lsp-installer'},
+
+      -- Autocompletado
+      {'hrsh7th/nvim-cmp'},
+      {'hrsh7th/cmp-buffer'},
+      {'hrsh7th/cmp-path'},
+      {'saadparwaiz1/cmp_luasnip'},
+      {'hrsh7th/cmp-nvim-lsp'},
+      {'hrsh7th/cmp-nvim-lua'},
+
+      -- Snippets
+      {'L3MON4D3/LuaSnip'},
+      {'rafamadriz/friendly-snippets'},
+    }
+  }
+
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
